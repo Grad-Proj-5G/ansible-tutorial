@@ -4,9 +4,11 @@
   become: true
   tasks:
 
-  - name: install apache2 package
-    apt:
-      name: apache2
-      state: latest
-
-
+  - name: install apache_package and php_package 
+    package:
+      name: 
+        - "{{ apache_package }}"
+        - "{{ php_package }} "
+      state: absent
+      update_cache: yes
+    
